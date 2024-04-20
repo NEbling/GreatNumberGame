@@ -1,9 +1,12 @@
+
 console.log("JS IS ALIVE!");
 
 let setNum;
 let userGuesses;
+let correct;
 function systemStart() {
     setNum = Math.floor(Math.random() * 100) + 1;
+    correct = false;
     hideAllMessages();
     userGuesses = 0;
 }
@@ -21,18 +24,19 @@ function submitGuess(form) {
     let userGuess = parseInt(form.elements.number.value); // Accessing the value entered by the user
     form.elements.number.value = '';
     userGuesses += 1;
-    if(userGuesses == 5){
-        if(userGuess == setNum) {
+    if (userGuesses == 5) {
+        if (userGuess == setNum) {
+            correct = true;
             showCorrect();
         } else {
             showLose();
         }
-    } else if (userGuesses > 5) {
+    } else if (userGuesses > 5 || correct == true) {
         systemStart();
-    }else {
-        if(userGuess == setNum) {
+    } else {
+        if (userGuess == setNum) {
             showCorrect();
-        } else if(userGuess < setNum) {
+        } else if (userGuess < setNum) {
             showLow();
         } else {
             showHigh();
@@ -59,6 +63,7 @@ function showCorrect() {
     let spanUserGuesses = document.getElementById('user-guesses');
     spanUserGuesses.innerText = `${userGuesses}`;
     correctDisp.classList.remove('hidden');
+    correct = true;
 }
 
 function showLose() {
@@ -68,3 +73,5 @@ function showLose() {
     spanLose.innerText = `${setNum}`;
     loseDisp.classList.remove('hidden');
 }
+
+
