@@ -14,7 +14,7 @@
     <h3 class="text-center mb-5">Take a guess!</h3>
     <div class="w-50 mx-auto mb-5" id="form">
         <form onsubmit="event.preventDefault(); submitGuess(this)">
-            <input type="number" name="number" class="form-control w-50 mx-auto" id="guess-input">
+            <input type="number" name="number" class="form-control w-50 mx-auto" id="guess-input" min="1" max="100">
         </form>
     </div>
     <div class="bg-info col-4 p-5 mx-auto hidden" id="low">
