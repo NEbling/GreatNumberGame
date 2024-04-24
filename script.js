@@ -74,6 +74,7 @@
         loseDisp.classList.remove('hidden');
     }
     window.submitGuess = submitGuess;
+    window.systemStart = systemStart;
 }) ();
 
 
